@@ -1,0 +1,33 @@
+@use "responsivePc" as s;
+//レスポンシブ検証用(PCファースト)
+body {
+	&::after {
+		position: fixed;
+		bottom: 10px;
+		left: 30px;
+		color: red;
+		font-size: 50px;
+		opacity: 0.5;
+		z-index: 1000;
+
+		@include s.xl {
+			content: "xl";
+		}
+
+		@include s.lg {
+			content: "lg";
+		}
+
+		@include s.md {
+			content: "md";
+		}
+
+		@include s.sm {
+			content: "sm";
+		}
+
+		@include s.xsm {
+			content: "xsm";
+		}
+	}
+}

@@ -1,0 +1,36 @@
+//レスポンシブ変数の定義(PC)
+$xl: 1400px; //pc
+$lg: 1200px; // ラップトップ
+$md: 992px; // タブレット
+$sm: 768px; // スマホ
+$xsm: 576px; // スマホ
+
+@mixin xl {
+	@media (max-width: ($xl)) {
+		@content;
+	}
+}
+
+@mixin lg {
+	@media (max-width: ($lg)) {
+		@content;
+	}
+}
+
+@mixin md {
+	@media (max-width: ($md)) {
+		@content;
+	}
+}
+
+@mixin sm {
+	@media (max-width: ($sm)) {
+		@content;
+	}
+}
+
+@mixin xsm {
+	@media (max-width: ($xsm)) {
+		@content;
+	}
+}
