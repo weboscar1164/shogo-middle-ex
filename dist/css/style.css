@@ -203,6 +203,7 @@ body::after {
   padding: 0 20px;
   position: fixed;
   width: 100%;
+  z-index: 999;
 }
 .header_logo {
   height: 40px;
@@ -234,9 +235,102 @@ body::after {
 .header_nav_pc_item::after {
   background: #fff;
   bottom: 0;
+  content: "";
   height: 1px;
   left: 0;
   position: absolute;
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.6s ease;
   width: 100%;
+}
+.header_nav_pc_item:hover::after {
+  transform: scale(1);
+}
+.header_reserve {
+  align-items: center;
+  background: #978f10;
+  color: #fff;
+  cursor: pointer;
+  display: flex;
+  height: 49px;
+  margin-left: auto;
+  padding: 0 32px;
+  transition: background-color 0.3s ease;
+}
+.header_reserve img {
+  height: 20px;
+  margin-right: 10px;
+  width: 20px;
+}
+.header_reserve:hover {
+  background: #c5bb15;
+}
+
+.mv_top {
+  height: 100vh;
+  overflow: hidden;
+  position: relative;
+}
+.mv_top_img {
+  height: 100%;
+  position: relative;
+}
+.mv_top_img::after {
+  background: #000;
+  content: "";
+  height: 100%;
+  opacity: 0.1;
+  position: absolute;
+  width: 100%;
+}
+.mv_top_img img {
+  left: 50%;
+  position: absolute;
+  top: 50%;
+  transform: translate(-50%, -50%);
+}
+.mv_top_text {
+  color: #fff;
+  font-size: 34px;
+  left: 50%;
+  letter-spacing: 0.5rem;
+  line-height: 3em;
+  position: absolute;
+  text-orientation: upright;
+  text-shadow: 0px 0px 5px rgb(0, 0, 0);
+  top: 50%;
+  transform: translate(-50%, -50%);
+  writing-mode: vertical-rl;
+}
+.mv_bottom {
+  background-image: url(../../img/mv-bg.jpg);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 100px 0;
+  text-orientation: upright;
+  width: 100%;
+  writing-mode: vertical-rl;
+}
+.mv_bottom_title {
+  font-size: 2.8rem;
+  letter-spacing: 0.5rem;
+  line-height: 2.2;
+  margin-left: 60px;
+}
+.mv_bottom_title span {
+  margin-top: 50px;
+}
+.mv_bottom_text {
+  letter-spacing: 0.5rem;
+  line-height: 2.2;
+  margin-left: 60px;
+  margin-top: 50px;
+}
+.mv_bottom_name {
+  font-size: 2.2rem;
+  letter-spacing: 1rem;
+  text-align: right;
 }
 /*# sourceMappingURL=sourcemaps/style.css.map */
