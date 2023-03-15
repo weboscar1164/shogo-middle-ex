@@ -333,4 +333,56 @@ body::after {
   letter-spacing: 1rem;
   text-align: right;
 }
+
+.todetail {
+  padding: 106px 0 78px;
+}
+.todetail_item {
+  display: flex;
+  height: 545px;
+  width: calc(100% - 200px);
+}
+.todetail_item_img {
+  width: 60%;
+}
+.todetail_item_img img {
+  height: 100%;
+  object-fit: cover;
+  width: 100%;
+}
+.todetail_item_content {
+  min-width: 440px;
+  padding-top: 25px;
+}
+.todetail_item_content_title {
+  font-size: 3.6rem;
+  line-height: 6.2rem;
+  margin-bottom: 67px;
+}
+.todetail_item_content_text {
+  line-height: 3.2rem;
+  margin-bottom: 40px;
+}
+.todetail_item_content_button {
+  border: 1px solid #000;
+  display: block;
+  height: 56px;
+  padding: 18px 0;
+  text-align: center;
+  transition: background-color 0.3s;
+  width: 200px;
+}
+.todetail_item_content_button:hover {
+  background: #eee;
+}
+.todetail_item:nth-child(odd) .todetail_item_content {
+  margin-left: 120px;
+}
+.todetail_item:nth-child(even) {
+  flex-direction: row-reverse;
+  margin-left: auto;
+}
+.todetail_item:not(:last-child) {
+  margin-bottom: 122px;
+}
 /*# sourceMappingURL=sourcemaps/style.css.map */
