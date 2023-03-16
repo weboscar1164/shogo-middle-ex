@@ -7,7 +7,27 @@
 		"ＭＳ Ｐ明朝", "MS PMincho", serif;
 }
 
-////hover
+.section {
+	&_title {
+		text-align: center;
+
+		img {
+			height: 40px;
+			width: 40px;
+			margin-bottom: 13px;
+		}
+
+		h2 {
+			font-size: 36px;
+		}
+	}
+
+	&_container {
+		margin: auto;
+		width: 80%;
+		max-width: 1180px;
+	}
+}
 
 // header
 
@@ -118,10 +138,13 @@
 			}
 
 			img {
-				position: absolute;
-				top: 50%;
-				left: 50%;
-				transform: translate(-50%, -50%);
+				// position: absolute;
+				// top: 50%;
+				// left: 50%;
+				// transform: translate(-50%, -50%);
+				width: 100%;
+				height: 100%;
+				object-fit: cover;
 			}
 		}
 
@@ -146,7 +169,7 @@
 		flex-direction: column;
 		width: 100%;
 		padding: 100px 0;
-		background-image: url(../../img/mv-bg.jpg);
+		background: url(../../img/bg01.jpg) center/cover;
 		writing-mode: vertical-rl;
 		text-orientation: upright;
 
@@ -184,13 +207,8 @@
 	&_item {
 		display: flex;
 		height: 545px;
-		width: calc(100% - 200px);
 
 		&_img {
-			// display: flex;
-			// justify-content: center;
-			// align-items: center;
-			// overflow: hidden;
 			width: 60%;
 
 			img {
@@ -202,7 +220,7 @@
 
 		&_content {
 			padding-top: 25px;
-			min-width: 440px;
+			min-width: 460px;
 
 			&_title {
 				margin-bottom: 67px;
@@ -244,5 +262,267 @@
 		&:not(:last-child) {
 			margin-bottom: 122px;
 		}
+	}
+}
+
+//reccomend
+
+.recommend {
+	padding: 60px 0 142px;
+	background: url(../../img/bg02.jpg) center/cover;
+
+	&_list {
+		display: flex;
+		justify-content: space-between;
+		margin-top: 61px;
+	}
+
+	&_card {
+		width: calc((100% - 94px * 2) / 3);
+
+		&_bottom {
+			padding-top: 28px;
+
+			&_title {
+				padding-bottom: 26px;
+				font-size: 2rem;
+				line-height: 3.2rem;
+			}
+
+			&_text {
+				line-height: 3.2rem;
+			}
+		}
+	}
+}
+
+//info
+
+.info {
+	padding: 60px 0;
+
+	&_tab {
+		margin: 57px 0 48px;
+		display: flex;
+		justify-content: center;
+
+		&_item {
+			position: relative;
+			cursor: pointer;
+
+			&::after {
+				content: "";
+				position: absolute;
+				left: 0;
+				bottom: 0;
+				width: 100%;
+				height: 1px;
+				background: s.$fontColorBlack;
+				transform: scaleX(0);
+				transform-origin: left;
+				transition: transform 0.6s ease;
+			}
+
+			&:hover {
+				&::after {
+					transform: scaleX(1);
+				}
+			}
+
+			&--active {
+				&::after {
+					transform: scaleX(1);
+				}
+			}
+
+			&:not(:last-child) {
+				margin-right: 50px;
+			}
+		}
+	}
+
+	&_items {
+	}
+
+	&_cards {
+		display: flex;
+		justify-content: space-between;
+		flex-wrap: wrap;
+	}
+
+	&_card {
+		width: calc((100% - 44px) / 2);
+		height: 130px;
+		background: s.$cardColor;
+
+		a {
+			display: flex;
+			padding: 15px 10px;
+		}
+
+		&_img {
+			position: relative;
+			overflow: hidden;
+			width: 100px;
+			height: 100px;
+			min-width: 100px;
+			img {
+				width: 100%;
+				height: 100%;
+				object-fit: cover;
+				transition: transform 0.6s;
+			}
+
+			&::after {
+				content: "more";
+				position: absolute;
+				opacity: 0;
+				left: 0;
+				top: 0;
+				width: 100%;
+				height: 100%;
+				padding-top: 38px;
+				background: rgba(0, 0, 0, 0.3);
+				color: #fff;
+				text-align: center;
+				transition: opacity 0.6s;
+			}
+		}
+
+		&_content {
+			padding-left: 30px;
+
+			&_date {
+				font-size: 1.4rem;
+				margin-bottom: 5px;
+			}
+
+			&__text {
+				line-height: 3.2rem;
+			}
+		}
+
+		&:not(:nth-child(-n + 2)) {
+			margin-top: 20px;
+		}
+
+		&:hover {
+			.info_card_img {
+				&::after {
+					opacity: 1;
+				}
+			}
+			img {
+				transform: scale(1.1);
+			}
+		}
+	}
+}
+
+//access
+
+.access {
+	padding: 60px 110px;
+	background: url(../../img/bg01.jpg) center/cover;
+
+	&_container {
+		display: flex;
+		margin: 79px 0 69px;
+	}
+
+	&_img {
+		flex-basis: 60%;
+		img {
+			width: 100%;
+			height: 100%;
+			object-fit: cover;
+		}
+	}
+
+	&_content {
+		flex-basis: calc(40% - 83px);
+		margin-left: 83px;
+
+		&_text {
+			margin-top: 20px;
+		}
+	}
+
+	&_map {
+		position: relative;
+		width: 100%;
+		max-width: 800px;
+		margin: 0 auto;
+		padding-top: 60%;
+		height: 0;
+		text-align: center;
+
+		iframe {
+			position: absolute;
+			top: 0;
+			left: 0;
+			width: 100%;
+			height: 100%;
+		}
+	}
+}
+
+//footer
+
+.footer {
+	padding-top: 61px;
+	background: url(../../img/bg3.jpg) center/cover;
+	&_nav {
+		display: flex;
+		justify-content: center;
+		writing-mode: vertical-rl;
+		margin-bottom: 97px;
+		width: 100%;
+
+		&_list {
+			display: flex;
+			justify-content: center;
+			flex-direction: column;
+		}
+
+		&_item {
+			letter-spacing: 1.5rem;
+			&:not(:last-child) {
+				margin-left: 30px;
+			}
+		}
+	}
+
+	&_logo {
+		margin-bottom: 65px;
+		text-align: center;
+		img {
+			width: 40px;
+			height: 40px;
+			margin-bottom: 13px;
+		}
+
+		h3 {
+			font-size: 4.3rem;
+			letter-spacing: 1.8rem;
+		}
+	}
+
+	&_info {
+		margin-bottom: 50px;
+		text-align: center;
+
+		p {
+			letter-spacing: 0.3rem;
+			margin-bottom: 18px;
+		}
+	}
+
+	&_copy {
+		padding: 23px;
+		background: #000;
+		color: s.$fontColorWhite;
+		font-size: 1.2rem;
+		text-align: center;
 	}
 }
