@@ -866,6 +866,23 @@ body::after {
 .footer_nav_item:not(:last-child) {
   margin-left: 30px;
 }
+.footer_nav_item a {
+  position: relative;
+}
+.footer_nav_item a::after {
+  background: #000;
+  content: "";
+  height: calc(100% - 14px);
+  inset: 0 -4px auto auto;
+  position: absolute;
+  scale: 0;
+  transform-origin: top;
+  transition: scale 0.6s ease;
+  width: 1px;
+}
+.footer_nav_item:hover a::after {
+  scale: 1;
+}
 .footer_logo {
   margin-bottom: 65px;
   text-align: center;
