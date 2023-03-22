@@ -5,6 +5,40 @@
 		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 		<link rel="stylesheet" href="./dist/css/style.css" />
+		<script src="./dist/js/jquery-3.6.4.min.js"></script>
+		<script src="./dist/js/script.js"></script>
+		<script type="application/ld+json">
+			{
+				"@context": "https://schema.org/",
+				"@type": "BreadcrumbList",
+				"itemListElement": [
+					{
+						"@type": "ListItem",
+						"position": 1,
+						"name": "ホーム",
+						"item": "./index.html"
+					},
+					{
+						"@type": "ListItem",
+						"position": 2,
+						"name": "お部屋",
+						"item": "./room.html"
+					},
+					{
+						"@type": "ListItem",
+						"position": 3,
+						"name": "お料理",
+						"item": "./menu.html"
+					},
+					{
+						"@type": "ListItem",
+						"position": 4,
+						"name": "温泉",
+						"item": "./onsen.html"
+					}
+				]
+			}
+		</script>
 		<title>Document</title>
 	</head>
 	<body>
@@ -61,6 +95,13 @@
 				<img src="./img/menu-top.jpg" alt="" />
 			</div>
 			<h2 class="sv_text">お料理</h2>
+		</section>
+
+		<section class="bredcrumb">
+			<ol class="section_container">
+				<li><a href="./index.html">ホーム</a></li>
+				<li>お料理</li>
+			</ol>
 		</section>
 
 		<section class="detail">

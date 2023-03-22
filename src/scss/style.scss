@@ -106,11 +106,23 @@
 	width: 100%;
 	height: 74px;
 	padding: 0 20px;
-	z-index: 999;
+	z-index: 10;
+
+	&::after {
+		content: "";
+		position: absolute;
+		opacity: 0;
+		top: 0;
+		left: 0;
+		width: 100%;
+		height: 100%;
+		background: rgba(#000, 0.4);
+		transition: opacity 1s ease;
+	}
 
 	&_logo {
-		// width: 200px;
 		height: 40px;
+		z-index: 100;
 
 		&_link {
 			display: flex;
@@ -132,6 +144,7 @@
 		&_pc {
 			margin-left: 120px;
 			color: s.$fontColorWhite;
+			z-index: 100;
 
 			&_list {
 				display: flex;
@@ -166,6 +179,7 @@
 
 		&_sp {
 			display: none;
+			z-index: 100;
 
 			&_checkbox {
 				display: none;
@@ -292,6 +306,7 @@
 		color: s.$fontColorWhite;
 		transition: background-color 0.3s ease;
 		cursor: pointer;
+		z-index: 100;
 
 		img {
 			width: 20px;
@@ -328,6 +343,12 @@
 		}
 	}
 }
+//スクロールで背景付与
+.headerBgChange {
+	&::after {
+		opacity: 1;
+	}
+}
 
 // mv
 
@@ -338,23 +359,42 @@
 		overflow: hidden;
 
 		&_img {
-			position: relative;
-			height: 100%;
+			&_wrapper {
+				position: relative;
+				width: 100%;
+				height: 100%;
+			}
 
-			&::after {
+			&_item {
 				position: absolute;
-				content: "";
-				opacity: 0.1;
 				width: 100%;
 				height: 100%;
-				background: #000;
-			}
+				transition: scale 10s ease;
 
-			img {
-				width: 100%;
-				height: 100%;
-				object-fit: cover;
+				&::after {
+					content: "";
+					position: absolute;
+					top: 0;
+					left: 0;
+					width: 100%;
+					height: 100%;
+					background: rgba(#000, 0.2);
+				}
 			}
+		}
+
+		&_img1 {
+			background: url(../../img/mainbg01.jpg) no-repeat center/cover;
+		}
+
+		&_img2 {
+			display: none;
+			background: url(../../img/mainbg02.jpg) no-repeat center/cover;
+		}
+
+		&_img3 {
+			display: none;
+			background: url(../../img/mainbg03.jpg) no-repeat center/cover;
 		}
 
 		&_text {
@@ -429,6 +469,11 @@
 			}
 		}
 	}
+}
+
+//mainvisual jquery操作
+.zoomImg {
+	scale: 1.1;
 }
 
 // todetail
@@ -701,6 +746,9 @@
 	}
 
 	&_items {
+		&--hide {
+			display: none;
+		}
 	}
 
 	&_cards {
@@ -965,6 +1013,7 @@
 .totop {
 	position: fixed;
 	inset: auto 40px 40px auto;
+	display: none;
 	width: 70px;
 	height: 70px;
 	background: s.$buttonColor;
@@ -1035,6 +1084,52 @@
 		font-size: 3.4rem;
 		color: s.$fontColorWhite;
 		translate: -50% -50%;
+	}
+}
+
+//bredclumb
+.bredcrumb {
+	margin-top: 33px;
+	ol {
+		li {
+			display: inline-block;
+
+			a {
+				position: relative;
+				&::after {
+					content: "";
+					position: absolute;
+					bottom: 0;
+					left: 0;
+					width: 100%;
+					height: 1px;
+					background: #000;
+					scale: 0;
+					transform-origin: left;
+					transition: scale 0.6s ease;
+				}
+			}
+
+			&:not(:last-of-type) {
+				&::after {
+					content: "";
+					background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512"><path d="M96 480c-8.188 0-16.38-3.125-22.62-9.375c-12.5-12.5-12.5-32.75 0-45.25L242.8 256L73.38 86.63c-12.5-12.5-12.5-32.75 0-45.25s32.75-12.5 45.25 0l192 192c12.5 12.5 12.5 32.75 0 45.25l-192 192C112.4 476.9 104.2 480 96 480z" fill="000"/></svg>')
+						center/contain no-repeat;
+					width: 0.7em;
+					height: 0.7em;
+					display: inline-block;
+					margin-left: 5px;
+				}
+			}
+
+			&:hover {
+				a {
+					&::after {
+						scale: 1;
+					}
+				}
+			}
+		}
 	}
 }
 

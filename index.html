@@ -8,10 +8,42 @@
 		<link rel="stylesheet" href="./dist/css/style.css" />
 		<script src="./dist/js/jquery-3.6.4.min.js"></script>
 		<script src="./dist/js/script.js"></script>
+		<script type="application/ld+json">
+			{
+				"@context": "https://schema.org/",
+				"@type": "BreadcrumbList",
+				"itemListElement": [
+					{
+						"@type": "ListItem",
+						"position": 1,
+						"name": "ホーム",
+						"item": "./index.html"
+					},
+					{
+						"@type": "ListItem",
+						"position": 2,
+						"name": "お部屋",
+						"item": "./room.html"
+					},
+					{
+						"@type": "ListItem",
+						"position": 3,
+						"name": "お料理",
+						"item": "./menu.html"
+					},
+					{
+						"@type": "ListItem",
+						"position": 4,
+						"name": "温泉",
+						"item": "./onsen.html"
+					}
+				]
+			}
+		</script>
 		<title>石井花壇</title>
 	</head>
 	<body>
-		<header class="header">
+		<header id="header" class="header">
 			<div class="header_logo">
 				<a href="#" class="header_logo_link">
 					<img class="header_logo_img" src="./img/logo01.png" alt="" />
@@ -61,9 +93,11 @@
 
 		<section class="mv">
 			<div class="mv_top">
-				<div class="mv_top_img">
-					<img src="./img/mainbg01.jpg" alt="" />
-				</div>
+				<ul class="mv_top_img_wrapper">
+					<li id="sld1" class="sldFade mv_top_img_item mv_top_img1"></li>
+					<li id="sld2" class="sldFade mv_top_img_item mv_top_img2"></li>
+					<li id="sld3" class="sldFade mv_top_img_item mv_top_img3"></li>
+				</ul>
 				<h2 class="mv_top_text">
 					頑張る人の<br />
 					頑張らない時間
@@ -220,7 +254,7 @@
 				<img src="./img/logo02.png" alt="" class="section_title_img" />
 				<h2 class="section_title_text">お知らせ</h2>
 			</div>
-			<div class="section_container">
+			<div class="section_container info_container">
 				<ul class="info_tab">
 					<li class="info_tab_item info_tab_item--active">営業情報</li>
 					<li class="info_tab_item">その他</li>
@@ -307,6 +341,85 @@
 						</li>
 					</ul>
 				</div>
+
+				<div class="info_items info_items--hide">
+					<ul class="info_cards">
+						<li class="info_card">
+							<a href="#">
+								<div class="info_card_img">
+									<img src="./img/onsen-top.jpg" alt="" />
+								</div>
+								<div class="info_card_content">
+									<p class="info_card_content_date">2020.12.24</p>
+									<p class="info_card_content_text">温泉の効能について</p>
+								</div>
+							</a>
+						</li>
+						<li class="info_card">
+							<a href="#">
+								<div class="info_card_img">
+									<img src="./img/menu02.jpg" alt="" />
+								</div>
+								<div class="info_card_content">
+									<p class="info_card_content_date">2020.12.24</p>
+									<p class="info_card_content_text">温海近海の海の幸</p>
+								</div>
+							</a>
+						</li>
+						<li class="info_card">
+							<a href="#">
+								<div class="info_card_img">
+									<img src="./img/onsen-top.jpg" alt="" />
+								</div>
+								<div class="info_card_content">
+									<p class="info_card_content_date">2020.12.24</p>
+									<p class="info_card_content_text">
+										温海の源泉かけ流し露天風呂付き客室になります。
+									</p>
+								</div>
+							</a>
+						</li>
+						<li class="info_card">
+							<a href="#">
+								<div class="info_card_img">
+									<img src="./img/menu02.jpg" alt="" />
+								</div>
+								<div class="info_card_content">
+									<p class="info_card_content_date">2020.12.24</p>
+									<p class="info_card_content_text">
+										板長のおすすめメニューです。
+									</p>
+								</div>
+							</a>
+						</li>
+						<li class="info_card">
+							<a href="#">
+								<div class="info_card_img">
+									<img src="./img/onsen-top.jpg" alt="" />
+								</div>
+								<div class="info_card_content">
+									<p class="info_card_content_date">2020.12.24</p>
+									<p class="info_card_content_text">
+										和室の改装が一部終了しました。皆様のお越しをお待ちしております。
+									</p>
+								</div>
+							</a>
+						</li>
+						<li class="info_card">
+							<a href="#">
+								<div class="info_card_img">
+									<img src="./img/menu02.jpg" alt="" />
+								</div>
+								<div class="info_card_content">
+									<p class="info_card_content_date">2020.12.24</p>
+									<p class="info_card_content_text">
+										クリスマスコンサートが行われました。
+									</p>
+								</div>
+							</a>
+						</li>
+					</ul>
+				</div>
 			</div>
 		</section>
 
@@ -374,6 +487,6 @@
 				<p>Copyright © 石井花壇 All Rights Reserved.</p>
 			</div>
 		</footer>
-		<div class="totop"></div>
+		<div id="totop" class="totop"></div>
 	</body>
 </html>
