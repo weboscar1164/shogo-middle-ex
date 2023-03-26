@@ -267,20 +267,9 @@ body::after {
   display: flex;
   height: 74px;
   padding: 0 20px;
-  position: fixed;
+  position: absolute;
   width: 100%;
   z-index: 10;
-}
-.header::after {
-  background: rgba(0, 0, 0, 0.4);
-  content: "";
-  height: 100%;
-  left: 0;
-  opacity: 0;
-  position: absolute;
-  top: 0;
-  transition: opacity 1s ease;
-  width: 100%;
 }
 .header_logo {
   height: 40px;
@@ -289,10 +278,13 @@ body::after {
 .header_logo_link {
   display: flex;
 }
-.header_logo_img {
+.header_logo_img, .header_logo_img_scrolled {
   height: 40px;
   margin-right: 15px;
   width: 40px;
+}
+.header_logo_img_scrolled {
+  display: none;
 }
 .header_logo_text {
   color: #fff;
@@ -466,10 +458,51 @@ body::after {
   }
 }
 
-.headerBgChange::after {
-  opacity: 1;
+.headerBgChange {
+  background: rgba(255, 255, 255, 0.8);
+  opacity: 0;
+  position: fixed;
+  transform: translateY(-1);
+}
+.headerBgChange .header_logo_img {
+  display: none;
+}
+.headerBgChange .header_logo_img_scrolled {
+  display: inline;
+}
+.headerBgChange .header_logo_text,
+.headerBgChange .header_nav_pc {
+  color: #000;
 }
 
+.headerScrollOpen {
+  animation: header_down_animation 1s ease forwards;
+}
+
+.headerScrollClose {
+  animation: header_up_animation 1s ease;
+}
+
+@keyframes header_down_animation {
+  0% {
+    opacity: 0;
+    transform: translateY(-100%);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+@keyframes header_up_animation {
+  0% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  100% {
+    opacity: 0;
+    transform: translateY(-100%);
+  }
+}
 .mv_top {
   height: 100vh;
   overflow: hidden;

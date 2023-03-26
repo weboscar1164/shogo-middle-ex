@@ -102,23 +102,12 @@
 .header {
 	display: flex;
 	align-items: center;
-	position: fixed;
+	position: absolute;
 	width: 100%;
 	height: 74px;
 	padding: 0 20px;
 	z-index: 10;
-
-	&::after {
-		content: "";
-		position: absolute;
-		opacity: 0;
-		top: 0;
-		left: 0;
-		width: 100%;
-		height: 100%;
-		background: rgba(#000, 0.4);
-		transition: opacity 1s ease;
-	}
+	// transition: opacity 1s ease, transform 1s ease;
 
 	&_logo {
 		height: 40px;
@@ -128,10 +117,15 @@
 			display: flex;
 		}
 
-		&_img {
+		&_img,
+		&_img_scrolled {
 			width: 40px;
 			height: 40px;
 			margin-right: 15px;
+		}
+
+		&_img_scrolled {
+			display: none;
 		}
 
 		&_text {
@@ -345,8 +339,54 @@
 }
 //スクロールで背景付与
 .headerBgChange {
-	&::after {
+	background: rgba(#fff, 0.8);
+	position: fixed;
+	opacity: 0;
+	transform: translateY(-1);
+
+	.header_logo_img {
+		display: none;
+
+		&_scrolled {
+			display: inline;
+		}
+	}
+
+	.header_logo_text,
+	.header_nav_pc {
+		color: s.$fontColorBlack;
+	}
+}
+
+.headerScrollOpen {
+	animation: header_down_animation 1s ease forwards;
+}
+
+.headerScrollClose {
+	animation: header_up_animation 1s ease;
+}
+
+@keyframes header_down_animation {
+	0% {
+		opacity: 0;
+		transform: translateY(-100%);
+	}
+
+	100% {
 		opacity: 1;
+		transform: translateY(0);
+	}
+}
+
+@keyframes header_up_animation {
+	0% {
+		opacity: 1;
+		transform: translateY(0);
+	}
+
+	100% {
+		opacity: 0;
+		transform: translateY(-100%);
 	}
 }
 

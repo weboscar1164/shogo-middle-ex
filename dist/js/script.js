@@ -36,13 +36,28 @@ $(function () {
 	//header挙動
 	function headerControll() {
 		const header = $("#header"),
-			scrollTop = 400;
+			cangeElemTop = 300,
+			openElemTop = 1000;
+		let scroll = $(window).scrollTop();
 
-		console.log($(this).scrollTop());
-		if ($(this).scrollTop() > scrollTop) {
+		if (cangeElemTop < scroll && header.hasClass("headerBgChange") == false) {
 			header.addClass("headerBgChange");
-		} else {
+		} else if (
+			cangeElemTop > scroll &&
+			header.hasClass("headerBgChange") == true
+		) {
 			header.removeClass("headerBgChange");
+		}
+
+		if (openElemTop < scroll && header.hasClass("headerScrollOpen") == false) {
+			header.addClass("headerScrollOpen");
+			header.removeClass("headerScrollClose");
+		} else if (
+			openElemTop > scroll &&
+			header.hasClass("headerScrollOpen") == true
+		) {
+			header.removeClass("headerScrollOpen");
+			header.addClass("headerScrollClose");
 		}
 	}
 
@@ -51,7 +66,6 @@ $(function () {
 		const totop = $("#totop"),
 			scrollTop = 400;
 
-		console.log($(this).scrollTop());
 		if ($(this).scrollTop() > scrollTop) {
 			totop.fadeIn();
 		} else {
