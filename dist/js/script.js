@@ -1,3 +1,4 @@
+AOS.init();
 $(function () {
 	$(window).on("load", () => {
 		mvControll();

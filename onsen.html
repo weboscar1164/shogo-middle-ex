@@ -4,9 +4,8 @@
 		<meta charset="UTF-8" />
 		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<link rel="stylesheet" href="./dist/css/aos.css" />
 		<link rel="stylesheet" href="./dist/css/style.css" />
-		<script src="./dist/js/jquery-3.6.4.min.js"></script>
-		<script src="./dist/js/script.js"></script>
 		<script type="application/ld+json">
 			{
 				"@context": "https://schema.org/",
@@ -105,7 +104,7 @@
 		</section>
 
 		<section class="detail">
-			<div class="detail_head">
+			<div class="detail_head" data-aos="fade-up" data-aos-duration="3000">
 				<p>
 					心も身体も癒やす汐の温泉。<br />
 					湯あたりしにくく、赤ちゃんから年配の方までどなたでも<br
@@ -122,10 +121,18 @@
 							<img src="./img/onsen01.jpg" alt="" />
 						</div>
 						<div class="detail_body_item_content">
-							<h3 class="detail_body_item_content_title">
+							<h3
+								class="detail_body_item_content_title"
+								data-aos="fade-up"
+								data-aos-duration="3000"
+							>
 								貸し切り露天風呂「雲居の湯」
 							</h3>
-							<p class="detail_body_item_content_text">
+							<p
+								class="detail_body_item_content_text"
+								data-aos="fade-up"
+								data-aos-duration="3000"
+							>
 								弱酸性の湯質が優しく肌を包み込むような心地よさ<br />
 								最上階の露天風呂「雲居の湯」では、湯冷めしにくい食塩泉を<br
 									class="br_active_sm"
@@ -139,10 +146,18 @@
 							<img src="./img/onsen02.jpg" alt="" />
 						</div>
 						<div class="detail_body_item_content">
-							<h3 class="detail_body_item_content_title">
+							<h3
+								class="detail_body_item_content_title"
+								data-aos="fade-up"
+								data-aos-duration="3000"
+							>
 								美肌を促す乳白色の硫黄泉を
 							</h3>
-							<p class="detail_body_item_content_text">
+							<p
+								class="detail_body_item_content_text"
+								data-aos="fade-up"
+								data-aos-duration="3000"
+							>
 								まじりっけなしの白いにごり湯。鳥海山から引いた酸性の強い硫酸塩泉を、<br
 									class="br_active_sm"
 								/>
@@ -157,8 +172,14 @@
 
 		<section class="efficacy">
 			<div class="section_container efficacy_container">
-				<h2 class="efficacy_title">温泉の効能</h2>
-				<table class="efficacy_table">
+				<h2 class="efficacy_title" data-aos="fade-up" data-aos-duration="3000">
+					温泉の効能
+				</h2>
+				<table
+					class="efficacy_table"
+					data-aos="fade-up"
+					data-aos-duration="3000"
+				>
 					<tbody>
 						<tr>
 							<th>効能</th>
@@ -191,8 +212,10 @@
 				</ul>
 			</nav>
 			<div class="footer_logo">
-				<img src="./img/logo02.png" alt="" class="footer_logo_img" />
-				<h3 class="footer_logo_text">石井花壇</h3>
+				<a href="./index.html">
+					<img src="./img/logo02.png" alt="" class="footer_logo_img" />
+					<h3 class="footer_logo_text">石井花壇</h3>
+				</a>
 			</div>
 			<div class="footer_info">
 				<p>〒000-0000<span>山形県鶴岡市xxxxxxxxxxxx</span></p>
@@ -203,5 +226,9 @@
 			</div>
 		</footer>
 		<div class="totop"></div>
+
+		<script src="./dist/js/aos.js"></script>
+		<script src="./dist/js/jquery-3.6.4.min.js"></script>
+		<script src="./dist/js/script.js"></script>
 	</body>
 </html>
