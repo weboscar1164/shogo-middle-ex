@@ -1,6 +1,7 @@
 AOS.init();
 $(function () {
 	$(window).on("load", () => {
+		splashControll();
 		mvControll();
 	});
 
@@ -8,6 +9,10 @@ $(function () {
 		headerControll();
 		totopHideControll();
 	});
+
+	function splashControll() {
+		$("#splash").delay(1500).fadeOut("slow");
+	}
 
 	//mv操作
 	function mvControll() {
@@ -38,27 +43,33 @@ $(function () {
 	function headerControll() {
 		const header = $("#header"),
 			cangeElemTop = 300,
-			openElemTop = 1000;
+			openElemTop = $(window).height();
+
 		let scroll = $(window).scrollTop();
 
-		if (cangeElemTop < scroll && header.hasClass("headerBgChange") == false) {
-			header.addClass("headerBgChange");
-		} else if (
-			cangeElemTop > scroll &&
-			header.hasClass("headerBgChange") == true
-		) {
-			header.removeClass("headerBgChange");
-		}
+		if (!totopClicked) {
+			if (cangeElemTop < scroll && header.hasClass("headerBgChange") == false) {
+				header.addClass("headerBgChange");
+			} else if (
+				cangeElemTop > scroll &&
+				header.hasClass("headerBgChange") == true
+			) {
+				header.removeClass("headerBgChange");
+			}
 
-		if (openElemTop < scroll && header.hasClass("headerScrollOpen") == false) {
-			header.addClass("headerScrollOpen");
-			header.removeClass("headerScrollClose");
-		} else if (
-			openElemTop > scroll &&
-			header.hasClass("headerScrollOpen") == true
-		) {
-			header.removeClass("headerScrollOpen");
-			header.addClass("headerScrollClose");
+			if (
+				openElemTop < scroll &&
+				header.hasClass("headerScrollOpen") == false
+			) {
+				header.addClass("headerScrollOpen");
+				header.removeClass("headerScrollClose");
+			} else if (
+				openElemTop > scroll &&
+				header.hasClass("headerScrollOpen") == true
+			) {
+				header.removeClass("headerScrollOpen");
+				header.addClass("headerScrollClose");
+			}
 		}
 	}
 
@@ -87,14 +98,27 @@ $(function () {
 		$(this).addClass("info_tab_item--active");
 	});
 
-	//totop挙動
-	const totop = $(".totop");
+	//totopクリックイベント
+	const totop = $(".totop"),
+		header = $("#header");
+
+	let totopClicked = false;
+
 	totop.click(function () {
+		totopClicked = true;
+		header.removeClass("headerScrollOpen");
+		header.removeClass("headerScrollClose");
+		header.removeClass("headerBgChange");
 		$("html,body").animate(
 			{
 				scrollTop: 0,
 			},
 			1000
 		);
+
+		//totopスクロール中はheaderコントロールを無効にする
+		setTimeout(function () {
+			totopClicked = false;
+		}, 1000);
 	});
 });

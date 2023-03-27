@@ -262,6 +262,42 @@ body::after {
   }
 }
 
+#splash {
+  background: #fff;
+  height: 100%;
+  position: fixed;
+  text-align: center;
+  width: 100%;
+  z-index: 999;
+}
+#splash_logo {
+  left: 50%;
+  position: absolute;
+  top: 50%;
+  translate: -50% -50%;
+}
+#splash_logo_img {
+  width: 100px;
+}
+
+.splash_animation {
+  animation: splash_animation 2s infinite;
+}
+
+@keyframes splash_animation {
+  0% {
+    opacity: 0;
+  }
+  40% {
+    opacity: 1;
+  }
+  80% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 0;
+  }
+}
 .header {
   align-items: center;
   display: flex;
