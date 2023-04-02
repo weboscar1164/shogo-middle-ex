@@ -196,6 +196,12 @@ body::after {
   font-family: "Times New Roman", "游明朝", "Yu Mincho", "游明朝体", "YuMincho", "ヒラギノ明朝 Pro W3", "Hiragino Mincho Pro", "HiraMinProN-W3", "HGS明朝E", "ＭＳ Ｐ明朝", "MS PMincho", serif;
 }
 
+html,
+body {
+  scrollbar-gutter: stable;
+  width: 100vw;
+}
+
 .section_title {
   text-align: center;
 }
@@ -271,12 +277,11 @@ body::after {
   z-index: 999;
 }
 #splash_logo {
+  height: 100px;
   left: 50%;
   position: absolute;
   top: 50%;
   translate: -50% -50%;
-}
-#splash_logo_img {
   width: 100px;
 }
 
@@ -510,6 +515,12 @@ body::after {
 .headerBgChange .header_nav_pc {
   color: #000;
 }
+.headerBgChange .header_nav_sp_toggle_line {
+  background: #000;
+}
+.headerBgChange .header_nav_sp_toggle_line::before, .headerBgChange .header_nav_sp_toggle_line::after {
+  background: #000;
+}
 
 .headerScrollOpen {
   animation: header_down_animation 1s ease forwards;
@@ -640,6 +651,7 @@ body::after {
 }
 
 .todetail {
+  overflow: hidden;
   padding: 106px 0 78px;
 }
 .todetail_item {
@@ -741,7 +753,7 @@ body::after {
   .todetail_item_content_title {
     color: #fff;
     position: absolute;
-    top: 40px;
+    top: -450px;
   }
   .todetail_item_content_text {
     margin-bottom: 70px;
@@ -764,6 +776,7 @@ body::after {
     font-size: 3.2rem;
     letter-spacing: 0.5rem;
     right: 50px;
+    top: -550px;
     writing-mode: vertical-rl;
   }
 }
@@ -1095,6 +1108,90 @@ body::after {
     bottom: 20px;
     right: 20px;
   }
+}
+
+.reserve_modal {
+  display: none;
+  height: 100vh;
+  left: 0;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 999;
+}
+.reserve_modal_overlay {
+  background: rgba(40, 47, 53, 0.8);
+  height: 100vh;
+  left: 0;
+  position: absolute;
+  top: 0;
+  width: 100%;
+}
+.reserve_modal_body {
+  background: #f6f6f6;
+  border-radius: 10px;
+  left: 50%;
+  padding: 30px 0;
+  position: absolute;
+  text-align: center;
+  top: 50%;
+  translate: -50% -50%;
+  width: 350px;
+}
+.reserve_modal_icon {
+  cursor: pointer;
+  height: 16px;
+  position: absolute;
+  right: 16px;
+  top: 10px;
+  width: 16px;
+}
+.reserve_modal_form {
+  display: block;
+  padding: 10px 30px 0;
+  text-align: left;
+}
+.reserve_modal_title {
+  font-size: 3.2rem;
+  letter-spacing: 1rem;
+}
+.reserve_modal label {
+  display: block;
+  margin-bottom: 5px;
+}
+.reserve_modal input,
+.reserve_modal select {
+  border: 1px solid #e7e7e7;
+  border-radius: 3px;
+  display: block;
+  margin-bottom: 20px;
+  padding: 5px;
+  width: 100%;
+}
+.reserve_modal input::placeholder,
+.reserve_modal select::placeholder {
+  color: #bbb;
+}
+.reserve_modal input:focus,
+.reserve_modal select:focus {
+  border: 3px solid #e7e7e7;
+  margin-bottom: 16px;
+}
+.reserve_modal button {
+  background: #978f10;
+  color: #fff;
+  display: block;
+  font-size: 2rem;
+  letter-spacing: 2rem;
+  margin: 0 auto;
+  padding: 10px;
+  text-align: center;
+  text-indent: 2rem;
+  width: 150px;
+}
+
+.stopScroll {
+  overflow: hidden;
 }
 
 .sv {

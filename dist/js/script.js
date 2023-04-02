@@ -1,13 +1,29 @@
-AOS.init();
+const config = {
+	locale: "ja",
+	mode: "range",
+	minDate: "today",
+	dateFormat: "Y-m-d",
+};
+flatpickr("#date-picker", config);
+
 $(function () {
 	$(window).on("load", () => {
 		splashControll();
 		mvControll();
+		headerControll();
+		totopHideControll();
+		detailTitleControll();
+		AOS.init(); //data-aos-offset変更に対応
 	});
 
 	$(window).on("scroll", () => {
 		headerControll();
 		totopHideControll();
+	});
+
+	$(window).on("resize", () => {
+		detailTitleControll();
+		AOS.init(); //data-aos-offset変更に対応
 	});
 
 	function splashControll() {
@@ -42,16 +58,19 @@ $(function () {
 	//header挙動
 	function headerControll() {
 		const header = $("#header"),
-			cangeElemTop = 300,
+			changeElemTop = $(window).height() / 2,
 			openElemTop = $(window).height();
 
 		let scroll = $(window).scrollTop();
 
 		if (!totopClicked) {
-			if (cangeElemTop < scroll && header.hasClass("headerBgChange") == false) {
+			if (
+				changeElemTop < scroll &&
+				header.hasClass("headerBgChange") == false
+			) {
 				header.addClass("headerBgChange");
 			} else if (
-				cangeElemTop > scroll &&
+				changeElemTop > scroll &&
 				header.hasClass("headerBgChange") == true
 			) {
 				header.removeClass("headerBgChange");
@@ -76,7 +95,7 @@ $(function () {
 	//totop挙動
 	function totopHideControll() {
 		const totop = $("#totop"),
-			scrollTop = 400;
+			scrollTop = $(window).height();
 
 		if ($(this).scrollTop() > scrollTop) {
 			totop.fadeIn();
@@ -121,4 +140,33 @@ $(function () {
 			totopClicked = false;
 		}, 1000);
 	});
+
+	//modal制御
+	const openModal = $(".openModal"),
+		closeModal = $(".closeModal"),
+		reserveModal = $(".reserve_modal");
+
+	openModal.click(function () {
+		reserveModal.fadeIn("slow");
+		$("body").addClass("stopScroll");
+		header.hide();
+		totop.hide();
+	});
+
+	closeModal.click(function () {
+		reserveModal.fadeOut("slow");
+		$("body").removeClass("stopScroll");
+		setTimeout(function () {
+			header.fadeIn();
+			totop.fadeIn();
+		}, 200);
+	});
+
+	function detailTitleControll() {
+		if ($(window).width() < 1200) {
+			$(".todetail_item_content").attr("data-aos-offset", "-300");
+		} else {
+			$(".todetail_item_content").attr("data-aos-offset", "120");
+		}
+	}
 });

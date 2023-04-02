@@ -7,6 +7,12 @@
 		"ＭＳ Ｐ明朝", "MS PMincho", serif;
 }
 
+html,
+body {
+	scrollbar-gutter: stable;
+	width: 100vw;
+}
+
 .section {
 	&_title {
 		text-align: center;
@@ -112,10 +118,8 @@
 		top: 50%;
 		left: 50%;
 		translate: -50% -50%;
-
-		&_img {
-			width: 100px;
-		}
+		width: 100px;
+		height: 100px;
 	}
 }
 
@@ -153,7 +157,6 @@
 	height: 74px;
 	padding: 0 20px;
 	z-index: 10;
-	// transition: opacity 1s ease, transform 1s ease;
 
 	&_logo {
 		height: 40px;
@@ -402,6 +405,15 @@
 	.header_nav_pc {
 		color: s.$fontColorBlack;
 	}
+
+	.header_nav_sp_toggle_line {
+		background: #000;
+
+		&::before,
+		&::after {
+			background: #000;
+		}
+	}
 }
 
 .headerScrollOpen {
@@ -566,6 +578,7 @@
 
 .todetail {
 	padding: 106px 0 78px;
+	overflow: hidden;
 
 	&_item {
 		display: flex;
@@ -684,7 +697,7 @@
 
 				&_title {
 					position: absolute;
-					top: 40px;
+					top: -450px;
 					color: s.$fontColorWhite;
 				}
 
@@ -711,6 +724,7 @@
 			&_content {
 				width: 95%;
 				&_title {
+					top: -550px;
 					right: 50px;
 					font-size: 3.2rem;
 					letter-spacing: 0.5rem;
@@ -1133,6 +1147,99 @@
 		bottom: 20px;
 		right: 20px;
 	}
+}
+
+// reserve_modal
+.reserve_modal {
+	display: none;
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100vh;
+	z-index: 999;
+
+	&_overlay {
+		position: absolute;
+		top: 0;
+		left: 0;
+		width: 100%;
+		height: 100vh;
+		background: rgba(#282f35, 0.8);
+	}
+
+	&_body {
+		position: absolute;
+		top: 50%;
+		left: 50%;
+		translate: -50% -50%;
+		width: 350px;
+		padding: 30px 0;
+		border-radius: 10px;
+		background: s.$cardColor;
+		text-align: center;
+	}
+
+	&_icon {
+		position: absolute;
+		top: 10px;
+		right: 16px;
+		width: 16px;
+		height: 16px;
+		cursor: pointer;
+	}
+
+	&_form {
+		display: block;
+		padding: 10px 30px 0;
+		text-align: left;
+	}
+
+	&_title {
+		font-size: 3.2rem;
+		letter-spacing: 1rem;
+	}
+
+	label {
+		display: block;
+		margin-bottom: 5px;
+	}
+
+	input,
+	select {
+		display: block;
+		width: 100%;
+		margin-bottom: 20px;
+		padding: 5px;
+		border: 1px solid s.$borderColor;
+		border-radius: 3px;
+
+		&::placeholder {
+			color: #bbb;
+		}
+
+		&:focus {
+			border: 3px solid s.$borderColor;
+			margin-bottom: 16px;
+		}
+	}
+
+	button {
+		display: block;
+		width: 150px;
+		margin: 0 auto;
+		padding: 10px;
+		background: s.$buttonColor;
+		color: s.$fontColorWhite;
+		font-size: 2rem;
+		letter-spacing: 2rem;
+		text-indent: 2rem;
+		text-align: center;
+	}
+}
+
+.stopScroll {
+	overflow: hidden;
 }
 
 //sv

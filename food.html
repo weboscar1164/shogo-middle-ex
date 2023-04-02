@@ -6,6 +6,10 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 		<link rel="stylesheet" href="./dist/css/aos.css" />
 		<link rel="stylesheet" href="./dist/css/style.css" />
+		<link
+			rel="stylesheet"
+			href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css"
+		/>
 		<script type="application/ld+json">
 			{
 				"@context": "https://schema.org/",
@@ -61,7 +65,7 @@
 					</li>
 				</ul>
 			</nav>
-			<div class="header_reserve">
+			<div class="header_reserve openModal">
 				<img src="./img/reserve-icon.png" alt="" />
 				<span>宿泊予約</span>
 			</div>
@@ -121,14 +125,14 @@
 						<div class="detail_body_item_content">
 							<h3
 								class="detail_body_item_content_title"
-								data-aos="fade-up"
+								data-aos="fade-left"
 								data-aos-duration="3000"
 							>
 								地元食材にこだわった会席料理
 							</h3>
 							<p
 								class="detail_body_item_content_text"
-								data-aos="fade-up"
+								data-aos="fade-left"
 								data-aos-duration="3000"
 							>
 								みずみずしくほのかに甘い野菜、新鮮で味に深みがある魚介類、肉類。<br />
@@ -144,14 +148,14 @@
 						<div class="detail_body_item_content">
 							<h3
 								class="detail_body_item_content_title"
-								data-aos="fade-up"
+								data-aos="fade-right"
 								data-aos-duration="3000"
 							>
 								温海の漁港で目利きの品を
 							</h3>
 							<p
 								class="detail_body_item_content_text"
-								data-aos="fade-up"
+								data-aos="fade-right"
 								data-aos-duration="3000"
 							>
 								石井花壇でお出しする料理はすべて料理長である大将の目利きで、<br
@@ -169,14 +173,14 @@
 						<div class="detail_body_item_content">
 							<h3
 								class="detail_body_item_content_title"
-								data-aos="fade-up"
+								data-aos="fade-left"
 								data-aos-duration="3000"
 							>
 								食材が一流、職人も一流
 							</h3>
 							<p
 								class="detail_body_item_content_text"
-								data-aos="fade-up"
+								data-aos="fade-left"
 								data-aos-duration="3000"
 							>
 								石井花壇の料理人は料亭で20年経験を積んだものばかり。<br />
@@ -216,6 +220,43 @@
 		</footer>
 		<div id="totop" class="totop"></div>
 
+		<div class="reserve_modal">
+			<div class="reserve_modal_overlay closeModal"></div>
+			<div class="reserve_modal_body">
+				<div class="reserve_modal_icon closeModal">
+					<img src="./img/closs-icon.png" alt="" />
+				</div>
+				<h3 class="reserve_modal_title">宿泊予約</h3>
+				<form action="#" class="reserve_modal_form">
+					<label for="name">お名前</label>
+					<input id="name" name="name" type="text" placeholder="石井 太郎" />
+					<label for="email">メールアドレス</label>
+					<input
+						id="email"
+						name="email"
+						type="email"
+						placeholder="example@email.com"
+					/>
+					<label for="plan">プラン</label>
+					<select name="plan" id="plan">
+						<option value="">プランを選択してください</option>
+						<option value="1">
+							①【期間限定】海辺の四季旬彩、贅沢美味懐石プラン
+						</option>
+						<option value="2">②平日に優雅に楽しむ、特別宿泊プラン</option>
+						<option value="3">
+							③絶景貸切露天と個室会席を満喫できるファミリープラン
+						</option>
+					</select>
+					<label for="date">ご予約年月日</label>
+					<input name="date" type="text" id="date-picker" />
+					<button type="submit">送信</button>
+				</form>
+			</div>
+		</div>
+
+		<script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
+		<script src="https://cdn.jsdelivr.net/npm/flatpickr/dist/l10n/ja.js"></script>
 		<script src="./dist/js/aos.js"></script>
 		<script src="./dist/js/jquery-3.6.4.min.js"></script>
 		<script src="./dist/js/script.js"></script>
