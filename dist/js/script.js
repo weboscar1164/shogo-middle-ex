@@ -30,6 +30,11 @@ $(function () {
 		$("#splash").delay(1500).fadeOut("slow");
 	}
 
+	//DOM指定
+	const header = $("#header"),
+		totop = $("#totop"),
+		firstSld = $("#sld1");
+
 	//mv操作
 	function mvControll() {
 		const sld = ".sldFade",
@@ -39,8 +44,8 @@ $(function () {
 
 		let sldNum = 2;
 
-		$("#sld1").show(sldTime);
-		$("#sld1").addClass("zoomImg");
+		firstSld.show(sldTime);
+		firstSld.addClass("zoomImg");
 
 		setInterval(function () {
 			$(sld).not(`#${sldPre}${sldNum}`).fadeOut(sldTime);
@@ -57,8 +62,7 @@ $(function () {
 
 	//header挙動
 	function headerControll() {
-		const header = $("#header"),
-			changeElemTop = $(window).height() / 2,
+		const changeElemTop = $(window).height() / 2,
 			openElemTop = $(window).height();
 
 		let scroll = $(window).scrollTop();
@@ -93,11 +97,11 @@ $(function () {
 	}
 
 	//totop挙動
-	function totopHideControll() {
-		const totop = $("#totop"),
-			scrollTop = $(window).height();
 
-		if ($(this).scrollTop() > scrollTop) {
+	function totopHideControll() {
+		const windowHeight = $(window).height();
+
+		if ($(this).scrollTop() > windowHeight) {
 			totop.fadeIn();
 		} else {
 			totop.fadeOut();
@@ -118,8 +122,6 @@ $(function () {
 	});
 
 	//totopクリックイベント
-	const totop = $(".totop"),
-		header = $("#header");
 
 	let totopClicked = false;
 
